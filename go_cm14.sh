@@ -4,7 +4,7 @@ sudo update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/ja
 sudo update-alternatives --set javac /usr/lib/jvm/java-8-openjdk-amd64/bin/javac
 
 # Directory that contains CM build scripts
-BUILD_SCRIPT_DIR=~/android
+BUILD_SCRIPT_DIR=~/workspace/CM14.1-Nightly
 
 ## END EDIT ##
 
