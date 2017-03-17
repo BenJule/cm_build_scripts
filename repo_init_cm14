@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cd ~/android/system/cm-14.1
+cd ~/workspace/CM14.1-Nightly
 repo init -u https://github.com/LineageOS/android.git -b cm-14.1
