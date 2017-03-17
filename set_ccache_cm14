@@ -1,8 +1,8 @@
 #!/bin/bash
 
-cd ~/android/system/cm-14.1
+cd ~/workspace/CM14.1-Nightly
 export USE_CCACHE=1
-export CCACHE_DIR=~/android/system/.ccache
+export CCACHE_DIR=~/workspace/CM14.1-Nightly/.ccache
 ## END EDIT ##
 
 prebuilts/misc/linux-x86/ccache/ccache -M 15G
