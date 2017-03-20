@@ -42,8 +42,8 @@ echo ""
 echo "Building ROM."
 echo ""
 ./start_build_cm14
-echo ""
-echo "Updating Web Server."
-echo ""
-./update_web_cm14
+#echo ""
+#echo "Updating Web Server."
+#echo ""
+#./update_web_cm14
 
