@@ -3,14 +3,14 @@
 # Path to root of CM project directory
 CM_PROJECT_DIR=~/workspace/CM14.1-Nightly
 # Set device
-ANDROID_DEVICE=v500
+ANDROID_DEVICE=jfltexx
 # Enable SU by default
 export WITH_SU=true
 # Enable ccache
 export USE_CCACHE=1
 # Path to ccache dir
 export CCACHE_DIR=~/workspace/CM14.1-Nightly/.ccache
-export ANDROID_JACK_VM_ARGS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx50g"
+export ANDROID_JACK_VM_ARGS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx40g"
 ## End Edit
 
 cd "$CM_PROJECT_DIR"
