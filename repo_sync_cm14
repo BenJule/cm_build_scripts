@@ -2,10 +2,12 @@
 
 # Path to root of CM project directory
 CM_PROJECT_DIR=~/workspace/CM14.1-Nightly
-CM_DEVICE=~/workspace/CM14.1-Nightly/device/lge/v500
-CM_KERNEL=~/workspace/CM14.1-Nightly/kernel/lge/v500
-CM_VENDOR=~/workspace/CM14.1-Nightly/vendor/lge
-CM_COMMON=~/workspace/CM14.1-Nightly/device/lge/gpad83-common
+CM_DEVICE=~/workspace/CM14.1-Nightly/device/samsung/jfltexx
+CM_KERNEL=~/workspace/CM14.1-Nightly/kernel/samsung/jf
+CM_VENDOR=~/workspace/CM14.1-Nightly/vendor/samsung
+CM_QCOM=~/workspace/CM14.1-Nightly/vendor/qcom/binaries
+CM_TWRP=~/workspace/CM14.1-Nightly/bootable/recovery-twrp
+CM_BUSYBOX=~/workspace/CM14.1-Nightly/external/busybox
 ## End Edit
 
 cd "$CM_PROJECT_DIR"
@@ -15,6 +17,7 @@ if [ -e "../../patches/build.name.cm14.diff" ]; then
 fi
 
 repo sync --no-clone-bundle
+#repo sync --force-sync --no-clone-bundle -c 
 
 if [ -e "../../patches/build.name.cm14.diff" ]; then
   echo "Setting build name to NIGHTLY"
@@ -27,8 +30,8 @@ if [ -d "$CM_DEVICE" ]; then
   cd "$CM_DEVICE"
   echo "Rebasing device repo."
   git checkout cm-14.1
-  git fetch cyanogen
-  git rebase cyanogen/cm-14.1
+  git fetch github
+  git rebase github/cm-14.1
   echo ""
 fi
 
@@ -37,8 +40,8 @@ if [ -d "$CM_KERNEL" ]; then
   cd "$CM_KERNEL"
   echo "Rebasing kernel repo."
   git checkout cm-14.1
-  git fetch cyanogen
-  git rebase cyanogen/cm-14.1
+  git fetch github
+  git rebase github/cm-14.1
   echo ""
 fi
 
@@ -46,16 +49,32 @@ if [ -d "$CM_VENDOR" ]; then
   cd "$CM_VENDOR"
   echo "Rebasing vendor repo."
   git checkout cm-14.1
-  git fetch cyanogen
-  git rebase cyanogen/cm-14.1
+  git fetch github
+  git rebase github/cm-14.1
   echo ""
 fi
 
-if [ -d "$CM_COMMON" ]; then
-  cd "$CM_COMMON"
-  echo "Rebasing common gpad repo."
+if [ -d "$CM_QCOM" ]; then
+  cd "$CM_QCOM"
+  echo "Rebasing qcom repo."
   git checkout cm-14.1
-  git fetch cyanogen
-  git rebase cyanogen/cm-14.1
+  git fetch github
+  git rebase github/cm-14.1
+  echo ""
+fi
+
+if [ -d "$CM_TWRP" ]; then
+  cd "$CM_TWRP"
+  echo "Update twrp repo."
+  git checkout android-7.1
+  git fetch github
+  git rebase github/android-7.1
+fi
+
+if [ -d "$CM_BUSYBOX" ]; then
+  cd "$CM_BUSYBOX"
+  git checkout cm-14.1
+  git fetch github
+  git rebase github/cm-14.1
   echo ""
 fi
